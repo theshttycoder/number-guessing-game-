@@ -1,0 +1,22 @@
+print("welcome to the number gussing game")
+print("please enter a number 1-10")
+import random # to help make random numbers
+rannum = random.randint(1 ,10) # making numbers randium
+incorrect="wrong" #i dont know why but it seems like when i delete this it acts up 
+while incorrect =="wrong":
+    num1 = int(input()) #having a input for a number to guess 
+    if num1>10:
+        print("thats not a number between one and ten please try again")
+        continue #if it was not between the numbers 1 and 10 it will make you pick again between one and ten
+    if num1==rannum:
+            print("you win congrants")
+            break #if you got it right then it would stop the code and say you win congrants 
+    if num1<rannum:
+            print("thats low try again")
+            continue # if the number is to low it will display a number to low try again and will try again
+    if num1>rannum:
+        print("thats high try again")
+        continue #if the number is higher then it will display that the number is higher try again
+    if num1<1:
+        print("please enter somthing higher than 1")
+        continue #if the number is lower than 1 then it will make you tryt again and will display a please enter somthing higher than 1
