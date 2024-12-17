@@ -1,0 +1,33 @@
+IO.puts("Welcome to the number guessing game!")
+IO.puts("Please enter a number between 1 and 10.")
+
+rannum = :rand.uniform(10)  # Generate a random number between 1 and 10
+
+defmodule Game do
+  def start do
+    guess_number()
+  end
+
+  defp guess_number do
+    num1 = IO.gets("Your guess: ") |> String.trim() |> String.to_integer()
+
+    cond do
+      num1 < 1 or num1 > 10 ->
+        IO.puts("That's not a number between 1 and 10, please try again.")
+        guess_number()
+
+      num1 == rannum ->
+        IO.puts("You win, congrats!")
+
+      num1 < rannum ->
+        IO.puts("That's too low, try again.")
+        guess_number()
+
+      num1 > rannum ->
+        IO.puts("That's too high, try again.")
+        guess_number()
+    end
+  end
+end
+
+Game.start()
